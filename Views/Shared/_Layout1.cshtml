@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" href="~/46_113693.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/js/scripts.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light py-3" style="background-color: #e3f2fd;">
+        <div class="container px-4">
+            <a class="navbar-brand" href="/Home/Index"><span class="fw-bolder text-primary fs-2" src="">FIMED</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder gap-3">
+                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link " })</li>
+                    <li class="nav-item">@Html.ActionLink("Cita", "Cita", "Home", null, new { @class = "nav-link " })</li>
+                    <li class="nav-item">@Html.ActionLink("Mis Citas", "Mis_Citas", "Home", null, new { @class = "nav-link " })</li>
+                    <li> <button type="button" class="btn btn-primary" style="border-radius: 110px; color: white" id="signup-btn" data-toggle="modal" data-target="#signupModal">Iniciar Sesion</button></li>
+                    <li type="button">@Html.ActionLink("Registrarse", "Signup_page", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <header class="mb-4">
+
+                        <h1 class="fw-bolder mb-1">@ViewData["Title"]</h1>
+                        <div class="text-muted fst-italic mb-2">@ViewData["Publicacion"]</div>
+
+                        @if (ViewData["Categorias"] is List<string> categorias)
+                        {
+                            foreach (string Categoria in categorias)
+                            {
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Categoria</a>
+                            }
+                        }
+
+                    </header>
+                    @RenderSection("Contenido", false)
+                </article>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    @RenderSection("sidewight", false)
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; FIMED 2023</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
