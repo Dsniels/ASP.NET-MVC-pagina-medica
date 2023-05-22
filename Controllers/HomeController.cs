@@ -87,18 +87,16 @@ namespace WEB.Controllers
 
         public ActionResult Editar(int id)
         {
-            ViewBag.alerta = "info";
-            ViewBag.res = "Actualizar Alumno";
             return View(CITA.Registrar(id));
         }
 
         [HttpPost]
         public ActionResult Editar(int id, string atencionmed, string nombre, string apellido, int? edad, DateTime fecha, string telefono, string descripcion)
         {
-            if (CITA.Actualizar(id, atencionmed, nombre, apellido, edad ?? 0, Convert.ToDateTime(fecha), telefono, descripcion))
+            if (CITA.Actualizar(id, atencionmed, nombre, apellido, edad ?? 0 , Convert.ToDateTime(fecha), telefono, descripcion))
             {
                 ViewBag.alerta = "success";
-                ViewBag.res = "Datos del alumno actualizados";
+                ViewBag.res = "Datos actualizados";
             }
             else
             {
@@ -120,7 +118,7 @@ namespace WEB.Controllers
             {
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :(";
-                return View(CITA.registrar(id));
+                return View(CITA.Registrar(id));
             }
         }
 

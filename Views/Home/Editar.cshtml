@@ -8,9 +8,7 @@
         <div class="bg-light rounded-4 py-5 px-4 px-md-5">
             <div class="text-center mb-5">
                 <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                <h1 class="fw-bolder">Agenda tu cita</h1>
-                <p class="lead fw-normal text-muted mb-0">No esperes más!</p>
-                <div class="alert alert-@ViewBag.alerta"><b>@ViewBag.res</b></div>
+                <h1 class="fw-bolder">Actualiza tu Cita</h1>
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
@@ -40,9 +38,9 @@
                             </div>
                             <div class="col-12">
                                 <select class="form-select form-control" value="@Model.AtencionMedica" type="text" id="atencionmed" name="atencionmed">
-                                    <option type="text" id="atencionmed" name="atencionmed" value="Atencion medica">Atencion medica</option>
-                                    <option type="text" id="atencionmed" name="atencionmed" value="Cardiologia">Cardiologia</option>
-                                    <option type="text" id="atencionmed" name="atencionmed" value="Radiologia">Radiologia</option>
+                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Atencion medica</option>
+                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Cardiologia</option>
+                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Radiologia</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -63,9 +61,8 @@
                             <textarea class="form-control" value="@Model.Descripcion" id="descripcion" name="descripcion" type="text" style="height: 10rem"></textarea>
                             <label for="descripcion">Comentario</label>
                         </div>
-                        <input type="hidden" id="id" name="id" value="@Model.IdCita" />
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        <div class="d-grid"><button class="btn btn-success btn-lg" id="btn1" type="submit" name="btn1">Enviar</button></div>
+                        <input type="hidden" id="id" name="id" value="@Model.IdCita" />v>
+                        <div class="d-grid"><button class="btn btn-success btn-lg" id="btn1" type="submit" name="btn1">Actualizar</button></div>
                     </form>
                 </div>
             </div>

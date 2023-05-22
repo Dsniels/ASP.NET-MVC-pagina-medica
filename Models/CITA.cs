@@ -9,6 +9,7 @@ namespace WEB.Models
     using System.Data.Entity.Spatial;
     using System.Data.SqlClient;
     using System.Linq;
+    using System.Web.Mvc;
 
     [Table("CITA")]
     public partial class CITA
@@ -137,42 +138,33 @@ namespace WEB.Models
             return registro;
         }
 
-        public bool Actualizar(int id, string atencionmed, string nombre, string apellido, int? edad, DateTime fecha, string telefono, string descripcion)
+        public bool Actualizar(int id, string atencionmed, string nombre, string apellido, int edad, DateTime fecha, string telefono, string descripcion)
         {
             bool estado = false;
-            string consulta = "UPDATE CITA SET AtencionMedica = @AtencionMedica, Nombre = @Nombre, Apellido = @Apellido, Edad = @Edad, Fecha = @Fecha, Telefono = @Telefono, Descripcion = @Descripcion WHERE IdCita = @IdCita";
+            string query = "UPDATE CITA SET AtencionMedica = @AtencionMedica, Nombre = @Nombre, Apellido = @Apellido, Edad = @Edad, Fecha = @Fecha, Telefono = @Telefono, Descripcion = @Descripcion WHERE IdCita ="+ id;
 
             try
             {
                 using (var cnx = new Model1())
                 {
-                    int filasAfectadas = cnx.Database.ExecuteSqlCommand(consulta,
-                        new SqlParameter("@IdCita", id),
+                    int CAMBIOS = cnx.Database.ExecuteSqlCommand(query,
                         new SqlParameter("@AtencionMedica", atencionmed),
                         new SqlParameter("@Nombre", nombre),
                         new SqlParameter("@Apellido", apellido),
-                        new SqlParameter("@Edad", edad ?? (object)DBNull.Value), // Manejar el valor nulo
+                        new SqlParameter("@Edad", edad),
                         new SqlParameter("@Fecha", fecha),
                         new SqlParameter("@Telefono", telefono),
                         new SqlParameter("@Descripcion", descripcion));
 
-                    if (filasAfectadas >= 1)
+                    if (CAMBIOS >= 1)
                     {
                         estado = true;
                     }
                 }
             }
-            catch (SqlException )
-            {
-                // Manejar excepciones específicas de SQL Server
-                // Loggear o notificar el error según corresponda
-                // ...
-            }
             catch (Exception)
             {
-                // Manejar excepciones genéricas u otras excepciones específicas
-                // Loggear o notificar el error según corresponda
-                // ...
+
             }
 
             return estado;
