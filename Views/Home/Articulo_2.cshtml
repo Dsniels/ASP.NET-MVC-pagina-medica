@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "6 consejos para elegir al pediatra de tus hijos";
+    ViewData["Categorias"] = new List<string>{
+            "Salud",
+            "Familia",
+            "Pediatria"
+         };
+    ViewData["AUTOR"] = "Sira Robles - Periodista especializada en pediatria.";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section Contenido{
+    <!-- Preview image figure-->
+
+    <figure class="mb-4"><img class="img-fluid rounded" src="~/img/Pediatria.jpg" alt="..." /></figure>
+    <!-- Post content-->
+    <section class="mb-5">
+        <p class="fs-5 mb-4">
+            Se ha identificado un nuevo virus llamado coronavirus del síndrome respiratorio agudo grave del tipo 2 (SARS-CoV-2) como la causa de un brote de la enfermedad que comenzó en China en 2019. La afección médica se llama enfermedad por coronavirus 2019 (COVID-19).
+            En marzo de 2020, la Organización Mundial de la Salud (OMS) declaró la pandemia de COVID-19. Los grupos de salud pública, incluidos los Centros para el Control y la Prevención de Enfermedades de los Estados Unidos (CDC, por sus siglas en inglés) y la Organización Mundial de la Salud, llevan un seguimiento de la pandemia y publican información actualizada en sus sitios web. Estos grupos también emitieron recomendaciones para prevenir la trasmisión del virus que causa la COVID-19.
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">1. Busca recomendaciones</h2>
+        <p class="fs-5 mb-4">
+            Existen varias maneras en las que puedes recibir recomendaciones para elegir al pediatra, por ejemplo, puedes preguntar a tus amigas que también tienen hijos, a familiares cercanos, incluso puedes preguntarle a tu médico tratante.
+            Otra manera es a través de internet, muchos especialistas manejan redes sociales y páginas web en donde publican sus áreas de experiencia, preparación profesional, medios de contacto para consultas, así como contenido educativo para padres de familia.
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">2. Verifica sus credenciales</h2>
+        <p class="fs-5 mb-4">
+            Una vez que consigas recomendaciones, busca más acerca de sus credenciales, es decir, si está certificado por alguna institución, organización o asociación de médicos que comparten la misma especialidad, pueden ser nacionales o internacionales.
+            Esto te indicará si el pediatra cuenta con el entrenamiento, las habilidades y la experiencia para proveer atención de salud a tus pequeños. Las certificaciones son un indicador de que el especialista está en constante actualización en nuevas formas de diagnóstico y tratamiento.
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">3. Investiga su experiencia</h2>
+        <p class="fs-5 mb-4">
+            La experiencia importa mucho y entre más experiencia tenga un pediatra, existen mayores probabilidades de que los resultados, en cuanto a la salud de tus hijos, sean positivos y podrás tener la tranquilidad de que se encuentra en buenas manos.
+            También, los buenos médicos siempre cuentan con buenas referencias y en este mundo interconectado, es altamente probable que encuentres opiniones acerca de los médicos que estás buscando.
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">4. Evalúa su estilo de comunicación</h2>
+        <p class="fs-5 mb-4">
+            La comunicación es clave para entender el estado de salud de los pequeños y tener buena comunicación con el doctor es vital, por lo que te recomendamos buscar un pediatra que te inspire confianza y que esté dispuesto a proporcionarte la información que necesites.
+            Cuando trates por primera vez con el pediatra, identifica la manera en la que te responde, si muestra interés en el problema que le estás planteando, si existe respeto en la conversación y si la manera en la que te explica la situación es entendible sin muchos tecnicismos.</p>
+        <h2 class="fw-bolder mb-4 mt-5">5. Considera su disponibilidad y accesibilidad</h2>
+        <p class="fs-5 mb-4">
+            Para el tema de consultas, considera la flexibilidad de horario del pediatra, ya que, si eres mamá o papá primerizo y estás tratando de balancear tu trabajo con tu vida familiar, lo mejor es buscar un pediatra cerca de tu casa o que tenga la disponibilidad que estás buscando.</p>
+        <h2 class="fw-bolder mb-4 mt-5">6. Revisa cobertura de seguro</h2>
+        <p class="fs-5 mb-4">
+            Vamos a suponer que has encontrado al pediatra perfecto, tienes buenas recomendaciones, sus credenciales son excelentes, posee mucha experiencia, ofrece el mejor trato, se encuentra cerca de tu casa, pero, ¿qué hay de la cobertura de tu seguro?
+
+            Sin duda la cobertura del seguro es algo práctico y para obtener los mayores beneficios que, a la vez, te ayuden a cuidar tu bolsillo, probablemente sea necesario considerar al pediatra que entra en tu plan de seguro.
+
+            Con esto no te estamos diciendo que te olvides de las otras cinco recomendaciones que te hemos dado hasta ahora, sin embargo, esto es algo que deberías considerar al momento de buscar al pediatra ideal.
+
+        </p>
+            </section>
+}
+
+
+@section sidewight {
+    <img src="~/img/pexels-antoni-shkraba-5214955.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@ViewData["AUTOR"]</h5>
+
+    </div>
+
+}

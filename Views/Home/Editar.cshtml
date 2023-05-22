@@ -1,0 +1,74 @@
+﻿@model WEB.Models.CITA
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}<section class="py-5">
+    <div class="container px-5 ">
+        <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+            <div class="text-center mb-5">
+                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                <h1 class="fw-bolder">Agenda tu cita</h1>
+                <p class="lead fw-normal text-muted mb-0">No esperes más!</p>
+                <div class="alert alert-@ViewBag.alerta"><b>@ViewBag.res</b></div>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <!-- Formulario-->
+                    <form action="~/Home/Editar" method="post">
+                        <!-- Nombre-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" value="@Model.Nombre" id="nombre" name="nombre" type="text" />
+                            <label for="nombre">Nombre</label>
+
+                        </div>
+                        <!-- Apellido-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" value="@Model.Apellido" id="apellido" name="apellido" type="text" />
+                            <label for="apellido">Apellido</label>
+
+                        </div>
+                        <!--Telefono-->
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" value="@Model.Telefono" id="telefono" name="telefono" />
+                            <label for="telefono">Numero Telefonico</label>
+                        </div>
+                        <!-- Atencion Medica-->
+                        <div class=" mb-3 row row-cols-lg-auto g-3 align-items-center">
+                            <div class=" col-12">
+                                <label for="fecha">Servicio:</label>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-select form-control" value="@Model.AtencionMedica" type="text" id="atencionmed" name="atencionmed">
+                                    <option type="text" id="atencionmed" name="atencionmed" value="Atencion medica">Atencion medica</option>
+                                    <option type="text" id="atencionmed" name="atencionmed" value="Cardiologia">Cardiologia</option>
+                                    <option type="text" id="atencionmed" name="atencionmed" value="Radiologia">Radiologia</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="edad">Edad:</label>
+
+                            </div>
+                            <div class="col-12">
+                                <input class="form-control" value="@Model.Edad" id="edad" name="edad" placeholder="">
+
+                            </div>
+                            <div class="form-floating col-12">
+                                <input type="datetime-local" value="@Model.Fecha" class="form-control" id="fecha" name="fecha">
+                                <label for="fecha">Fecha</label>
+
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" value="@Model.Descripcion" id="descripcion" name="descripcion" type="text" style="height: 10rem"></textarea>
+                            <label for="descripcion">Comentario</label>
+                        </div>
+                        <input type="hidden" id="id" name="id" value="@Model.IdCita" />
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <div class="d-grid"><button class="btn btn-success btn-lg" id="btn1" type="submit" name="btn1">Enviar</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

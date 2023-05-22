@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Descubre como cuidarte del covid";
+    ViewData["Categorias"] = new List<string>{
+           "Covid",
+            "Pandemia",
+            "Salud",
+            "Cuidados personales"
+         };
+    ViewData["AUTOR"] = "Michelle Robbit - Investigadora en virologia.";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section Contenido{
+ 
+    <figure class="mb-4"><img class="img-fluid rounded" src="~/img/mask-4934337.jpg" alt="..." /></figure>
+
+        <section class="mb-5">
+        <p class="fs-5 mb-4">
+            Se ha identificado un nuevo virus llamado coronavirus del síndrome respiratorio agudo grave del tipo 2 (SARS-CoV-2) como la causa de un brote de la enfermedad que comenzó en China en 2019. La afección médica se llama enfermedad por coronavirus 2019 (COVID-19).
+            En marzo de 2020, la Organización Mundial de la Salud (OMS) declaró la pandemia de COVID-19. Los grupos de salud pública, incluidos los Centros para el Control y la Prevención de Enfermedades de los Estados Unidos (CDC, por sus siglas en inglés) y la Organización Mundial de la Salud, llevan un seguimiento de la pandemia y publican información actualizada en sus sitios web. Estos grupos también emitieron recomendaciones para prevenir la trasmisión del virus que causa la COVID-19.         
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">¿Cómo se trasmite el coronavirus?</h2>
+        <p class="fs-5 mb-4">Según los datos, el virus de la COVID-19 se trasmite principalmente de una persona a otra entre quienes están en contacto estrecho. El virus se trasmite por las gotículas respiratorias que se liberan cuando una persona que tiene el virus tose, estornuda, respira, canta o habla. Estas gotitas pueden inhalarse o caer en la boca, la nariz o los ojos de una persona que esté cerca.
+            En algunos casos, el virus de la COVID-19 puede trasmitirse cuando una persona se ve expuesta a pequeñas gotitas o aerosoles que permanecen en el aire por varios minutos u horas, lo que se conoce como trasmisión por el aire.
+            El virus también se trasmite si tocas una superficie donde se encuentra el virus y luego te tocas la boca, la nariz o los ojos. Sin embargo, el riesgo es bajo.
+            Una persona que está infectada pero no presenta síntomas puede trasmitir la COVID-19. Esto se denomina contagio asintomático. Una persona infectada, pero que aún no presenta síntomas también puede trasmitir la COVID-19. Esto se denomina trasmisión presintomática.
+            Es posible contagiarse con la COVID-19 dos veces o más.</p>
+        <h2 class="fw-bolder mb-4 mt-5">¿Cuáles son los síntomas de la COVID-19?</h2>
+        <p class="fs-5 mb-4">
+            Los síntomas de la COVID-19 pueden ser muy leves o intensos. Algunas personas no presentan síntomas. Los signos y síntomas más comunes son fiebre, tos, cansancio y pérdida del sentido del gusto o del olfato.
+            Otros signos y síntomas pueden incluir falta de aire, dolores musculares, escalofríos, dolor de garganta, dolor de cabeza, dolor de pecho, diarrea, vómitos y náuseas. Esta lista no es exhaustiva. También se han notificado otros síntomas menos comunes. Los síntomas pueden aparecer entre 2 y 14 días después de la exposición.
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">¿Puede prevenirse la COVID-19?</h2>
+        <p class="fs-5 mb-4">
+            La Administración de Alimentos y Medicamentos de Estados Unidos (FDA, por sus siglas en inglés) dio autorización para el uso de emergencia de algunas vacunas contra la COVID-19. La FDA aprobó la vacuna de Pfizer-BioNTech contra la COVID-19, ahora llamada Comirnaty, para prevenir que las personas de 12 años en adelante contraigan la COVID-19. La FDA dio autorización para uso de emergencia a las vacunas de Pfizer-BioNTech contra la COVID-19 para niños de 6 meses a 11 años. La FDA aprobó la vacuna de Moderna contra la COVID-19, que ahora se llama Spikevax, para prevenir la enfermedad en mayores de 18 años. La FDA dio autorización para uso de emergencia a las vacunas de Moderna contra la COVID-19 para niños de 6 meses a 17 años. La FDA también autorizó el uso de la vacuna con adyuvante contra la COVID-19 de Novavax para personas de 12 años y mayores. Una vacuna podría evitar que contraigas la COVID-19 o que te enfermes gravemente o mueras a causa del virus.
+            Se recomienda una dosis adicional de la vacuna dada como vacunación primaria contra la COVID-19 para las personas que están vacunadas y que quizá no hayan tenido una respuesta inmunitaria suficiente
+        </p>
+        </section>
+}
+
+@section sidewight {
+    <img src="~/img/pexels-cottonbro-studio-9400294.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@ViewData["AUTOR"]</h5>
+
+    </div>
+
+}
+

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] </title>
+    <link rel="icon" href="~/46_113693.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light py-3" style="background-color: #e3f2fd;">
+        <div class="container px-4">
+            <a class="navbar-brand" href="/Home/Index"><span class="fw-bolder text-primary fs-2" src="">FIMED</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder gap-3">
+                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link " })</li>
+                    <li class="nav-item">
+                        @if (Session["Cliente"] == null)
+                        {
+                            @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })
+                        }
+                    </li>
+
+                    @if (Session["Cliente"] != null) 
+                    {
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Cita", "Cita", "Home", null, new { @class = "nav-link " })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Mis Citas", "Mis_Citas", "Home", null, new { @class = "nav-link " })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Cerrar Sesión", "Cerrar_sesion", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Iniciar Sesion</h5>
+                </div>
+                <div class="modal-body  justify-content-center">
+                    <form action="@Url.Action("login","Home")" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="email" id="Correo" name="Correo" class="form-control" />
+                            <label class="form-label" for="Correo">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" id="Contraseña" name="Contraseña" class="form-control" />
+                            <label class="form-label" for="Contraseña">Contraseña</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesion</button>
+
+                        <div class="text-center">
+
+                            <p>¿No eres miembro? @Html.ActionLink("Registrate", "Signup_page", "home", null, null) </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; FIMED 2023</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/scripts.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

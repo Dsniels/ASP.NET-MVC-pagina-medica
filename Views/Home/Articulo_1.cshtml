@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Mindfulness";
+    ViewData["Categorias"] = new List<string>{
+            "Estres",
+            "Ansiedad",
+            "Salud mental"
+         };
+    ViewData["Publicacion"] = "Publicado el 1 de mayo del 2022";
+    ViewData["AUTOR"] = "Pedro Sosa - Periodista especializado en salud, bienestar y ciencia.";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section Contenido{
+
+    <figure class="mb-4"><img class="img-fluid rounded" src="~/img/Mi proyecto.jpg" alt="..." /></figure>
+
+    <section class="mb-5">
+        <p class="fs-5 mb-4">El programa de mindfulness de 8 semanas del reconocido método MBSR (Mindfulness-Based Stress Reduction) del doctor Jon Kabat-Zinn ha demostrado ser tan efectivo para calmar la ansiedad como el antidepresivo escitalopram, un tratamiento farmacológico ampliamente utilizado en caso de ansiedad. Así lo ha demostrado un reciente estudio publicado en JAMA Psychiatry.</p>
+        <p class="fs-5 mb-4">Puesto que el fármaco escitalopram no está exento de efectos secundarios (náuseas, diarreas, estreñimiento, problemas sexuales, somnolencia, mareos...), los resultados del estudio sugieren que se debería considerar la meditación como opción segura para tratar los trastornos de ansiedad.¿Hasta qué punto? Te lo contamos.</p>
+        <h2 class="fw-bolder mb-4 mt-5">MEDITACIÓN CONTRA LA ANSIEDAD: ¿ES IGUAL DE EFECTIVA QUE UN FÁRMACO?</h2>
+        <p class="fs-5 mb-4">
+            Según el último Informe Mundial de Salud Mental de la Organización Mundial de la Salud (OMS) de junio de 2022, el número de personas que padecen una enfermedad mental en todo el mundo asciende ya a casi 1.000 millones de personas, siendo la ansiedad y la depresión los trastornos más comunes.
+            El dato es preocupante, puesto que la ansiedad provoca síntomas físicos y psíquicos que resultan muy angustiantes, además de ser limitantes. Ante esta situación, muchas veces se recetan fármacos como el escitalopram para combatir el trastorno, aunque no dejan de ser medicamentos que, como todos, pueden tener efectos secundarios.
+            Por esta razón, en los últimos tiempos muchos profesionales de la medicina recomiendan a sus pacientes tratar de reducir el estrés mediante la practica del mindfulness o atención plena, con el método MBSR. A pesar de los buenos resultados que ofrece esta técnica de reducción del estrés, hasta ahora no se había comparado su eficiencia con la de los fármacos. Por ello, científicos norteamericanos decidieron determinar con un estudio si el método MBSR podría ser un tratamiento igual de eficaz que el escitalopram. El resultado de la investigación fue sorprendente.
+            Para realizar el estudio reclutaron a 430 pacientes con trastorno de ansiedad diagnosticado en hospitales de EE. UU. Algunos de los pacientes realizaron un curso de 8 semanas de MBSR y otros tomaron escitalopram durante el mismo periodo. Tras este tiempo evaluaron de nuevo los niveles de ansiedad de los participantes. ¿Adivinas qué ocurrió?
+        </p>
+        <p class="fs-5 mb-4">
+            Las personas que habían realizado el programa de 8 semanas MBSR obtuvieron una reducción del 1,06 en la escala CGI-S que mide la ansiedad, mientras que los que habían tomado escitalopram redujeron este valor un 1,17, es decir, la reducción de la ansiedad en ambos casos fue similar. Esto significa, según las conclusiones del estudio, que la eficacia de la intervención con meditación para el trastorno de ansiedad no era inferior a la intervención con fármacos.
+            Además, de los los pacientes que iniciaron el tratamiento, el 8% del grupo de los que tomaban escitalopram abandonaron el tratamiento por sus efectos adversaos, mientras que ninguno del grupo de MBSR abandonó el tratamiento.
+        </p>
+    </section>
+}
+
+@section sidewight {
+    <img src="~/img/pexels-andrea-piacquadio-3783138.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@ViewData["AUTOR"]</h5>
+        
+    </div>
+
+}
+

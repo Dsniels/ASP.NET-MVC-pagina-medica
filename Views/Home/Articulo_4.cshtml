@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Alimentate Sanamente";
+    ViewData["Categorias"] = new List<string>{
+            "Alimentacion",
+            "Estilo de vida",
+            "Salud"
+         };
+    ViewData["AUTOR"] = "Sarah Connor: especializada en salud y bienestar.";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section Contenido{
+
+    <figure class="mb-4"><img class="img-fluid rounded" src="~/img/salad.jpg" alt="..." /></figure>
+
+        <section class="mb-5">
+        <p class="fs-5 mb-4">
+            Los alimentos son sustancias que ingerimos para obtener los nutrientes y la energía necesarios para mantenernos vivos y saludables. Hay una gran variedad de alimentos, incluyendo frutas, verduras, carnes, lácteos, granos y productos procesados. Cada uno de ellos tiene diferentes propiedades nutricionales, y es importante consumir una variedad de alimentos para obtener todos los nutrientes que necesitamos. Los nutrientes que encontramos en los alimentos incluyen proteínas, carbohidratos, grasas, vitaminas, minerales y fibra. Además de ser necesarios para el funcionamiento de nuestro cuerpo, los alimentos también juegan un papel importante en nuestra cultura, tradiciones y gustos personales.
+            Aquí una breve información sobre cómo puede consumir las Frutas, Vegetales y Carne.            
+        </p>
+        <h2 class="fw-bolder mb-4 mt-5">FRUTAS</h2>
+        <p class="fs-5 mb-4">Las frutas frescas, congeladas o enlatadas son excelentes opciones. Pruebe frutas más allá de las manzanas y los plátanos como el mango, la piña o el kiwi. Cuando la fruta fresca no esté en temporada, pruebe una variedad congelada, enlatada o seca. Tenga en cuenta que las frutas secas y enlatadas pueden contener azúcares o jarabes añadidos. Elija variedades de frutas enlatadas en agua o en su propio jugo.</p>
+        <h2 class="fw-bolder mb-4 mt-5">Verduras</h2>
+        <p class="fs-5 mb-4">Agregue variedad a las verduras asadas o al vapor con una hierba como el romero. También puede sofreír verduras en un sartén con un poco de aceite. También puede probar verduras congeladas o enlatadas para un acompañamiento rápido. Simplemente cocínelos en el microondas y sirva. Busque verduras enlatadas sin sal, mantequilla o salsas cremosas agregadas. Para variar, pruebe una verdura nueva cada semana.</p>
+        <h2 class="fw-bolder mb-4 mt-5">Carnes</h2>
+        <p class="fs-5 mb-4">
+            Si su receta favorita requiere freír pescado o pollo empanizado, pruebe variaciones más saludables horneando o asando a la parrilla. Tal vez incluso pruebe frijoles secos en lugar de carnes. Pregúntales a sus amigos y busca en Internet y revistas recetas con menos calorías; ¡Te sorprenderá descubrir que tienes un nuevo plato favorito!
+        </p>
+        </section>
+}
+
+
+@section sidewight {
+    <img src="~/img/pexels-gustavo-fring-3874619.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@ViewData["AUTOR"]</h5>
+
+    </div>
+
+}
+

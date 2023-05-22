@@ -1,0 +1,48 @@
+﻿@model List<WEB.Models.CITA>
+@{
+    ViewData["Title"] = "Mis citas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h1 class="text-primary fw-bolder mb-0">Citas Programadas</h1>
+        </div>
+        <br />
+        <br />
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <section id="logged-in">
+                    <!-- Cita 1-->
+                    @foreach (var f in Model)
+                    {
+                        <div class="card shadow border-0 rounded-4 mb-5">
+                            <div class="card-body p-5">
+                                <div class="row align-items-center gx-5">
+                                    <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                        <div class="bg-light p-4 rounded-4">
+                                            <div class="text-primary fw-bolder mb-2">@f.Fecha</div>
+                                            <div class="small fw-bolder">@f.Nombre @f.Apellido</div>
+                                            <div class="small text-muted">@f.AtencionMedica</div>
+                                            <div class="small text-muted">@f.Edad años</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div>
+                                            ID CITA # @f.IdCita  - Gracias por agendar tu cita con nosotros esperamos verte pronto.
+                                        </div>
+                                        <a href="@Url.Action("Editar", "Home", new { id = f.IdCita })" class="btn btn-primary">Editar</a>
+                                        
+                                        <a href="@Url.Action("Eliminar", "Home", new { id = f.IdCita })" class="btn btn-outline-danger">Eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
