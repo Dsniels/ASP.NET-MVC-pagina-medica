@@ -161,6 +161,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\1.jpg" />
     <Content Include="img\4001679.png" />
     <Content Include="img\ambulance-g7cfe212b5_640.jpg" />
     <Content Include="img\analysis-ga15eee074_1280.jpg" />
@@ -169,6 +170,9 @@
     <Content Include="img\doctor-g2c9ad6c93_640.jpg" />
     <Content Include="img\doctor-gcd68fa2a6_1280.jpg" />
     <Content Include="img\healing-g4042efa69_640.jpg" />
+    <Content Include="img\Logo salud medicina azul blanco %281%29.png" />
+    <Content Include="img\Logo salud medicina azul blanco.png" />
+    <Content Include="img\Logotipo Medicina Simple Azul y Blanco.png" />
     <Content Include="img\mask-4934337.jpg" />
     <Content Include="img\mediterranean-cuisine-gd6d88217d_1280.jpg" />
     <Content Include="img\Mi proyecto.jpg" />
@@ -189,6 +193,7 @@
     <Content Include="img\woman-g15dab02bf_640.jpg" />
     <Content Include="img\yoga-g96ebd2f0e_1280.jpg" />
     <Content Include="img\_2e6a2794-47a1-4799-857c-f5639fd303cb.jpeg" />
+    <Content Include="Logotipo-Medicina-Simple-Azul-y-Blanco.ico" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

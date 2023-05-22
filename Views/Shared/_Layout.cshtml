@@ -5,18 +5,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] </title>
-    <link rel="icon" href="~/46_113693.ico" type="image/x-icon">
+    <link rel="icon" href="~/Logotipo-Medicina-Simple-Azul-y-Blanco.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light py-3" style="background-color: #e3f2fd;">
+<body style="margin: 0;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; margin: 0;">
         <div class="container px-4">
-            <a class="navbar-brand" href="/Home/Index"><span class="fw-bolder text-primary fs-2" src="">FIMED</span></a>
+            <a  class="fw-bolder text-primary fs-2 navbar-brand" style="font-family: 'Modak', cursive;"  href="#">
+                <img src="~/img/Logo salud medicina azul blanco (1).png" width="100" height="100" class="d-inline-block align-top " alt="">
+                <span  width="100" height="100" style="font-family: 'Modak', cursive;">FIMED</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder gap-3">
@@ -27,10 +36,8 @@
                             @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })
                         }
                     </li>
-
-                    @if (Session["Cliente"] != null) 
+                    @if (Session["Cliente"] != null)
                     {
-
                         <li class="nav-item">
                             @Html.ActionLink("Cita", "Cita", "Home", null, new { @class = "nav-link " })
                         </li>
@@ -46,35 +53,7 @@
         </div>
     </nav>
     @RenderBody()
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Iniciar Sesion</h5>
-                </div>
-                <div class="modal-body  justify-content-center">
-                    <form action="@Url.Action("login","Home")" method="post">
-                        <div class="form-floating mb-3">
-                            <input type="email" id="Correo" name="Correo" class="form-control" />
-                            <label class="form-label" for="Correo">Email</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" id="Contraseña" name="Contraseña" class="form-control" />
-                            <label class="form-label" for="Contraseña">Contraseña</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesion</button>
-
-                        <div class="text-center">
-
-                            <p>¿No eres miembro? @Html.ActionLink("Registrate", "Signup_page", "home", null, null) </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer py-4">
+     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; FIMED 2023</div>
