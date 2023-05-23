@@ -4,8 +4,9 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+
 using WEB.Models;
+using System.Web.Mvc;
 
 namespace WEB.Controllers
 {
@@ -85,15 +86,18 @@ namespace WEB.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult Editar(int id)
         {
-            return View(CITA.Registrar(id));
+            var cita = CITA.Registrar(id);
+            return View(cita);
+
         }
 
         [HttpPost]
-        public ActionResult Editar(int id, string atencionmed, string nombre, string apellido, int? edad, DateTime fecha, string telefono, string descripcion)
+        public ActionResult Editar(CITA form, int id)
         {
-            if (CITA.Actualizar(id, atencionmed, nombre, apellido, edad ?? 0 , Convert.ToDateTime(fecha), telefono, descripcion))
+            if (CITA.Actualizar(form, id))
             {
                 ViewBag.alerta = "success";
                 ViewBag.res = "Datos actualizados";
@@ -103,7 +107,7 @@ namespace WEB.Controllers
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :( ";
             }
-            return View(CITA.Registrar(id));
+            return RedirectToAction("Mis_citas", "Home");
         }
 
         public ActionResult Eliminar(int id)
@@ -219,25 +223,6 @@ namespace WEB.Controllers
             Session["Cliente"] = null;
             return RedirectToAction("Index", "Home");
 
-        }
-        public ActionResult Articulo_1()
-        {
-            return View();
-        }
-
-        public ActionResult Articulo_2()
-        {
-            return View();
-        }
-
-        public ActionResult Articulo_3()
-        {
-            return View();
-        }
-
-        public ActionResult Articulo_4()
-        {
-            return View();
         }
 
     }

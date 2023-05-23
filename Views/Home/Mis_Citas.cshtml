@@ -14,33 +14,43 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-11 col-xl-9 col-xxl-8">
                 <section id="logged-in">
-                    <!-- Cita 1-->
-                    @foreach (var f in Model)
+                    @if (Model.Count > 0)
                     {
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <div class="row align-items-center gx-5">
-                                    <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                        <div class="bg-light p-4 rounded-4">
-                                            <div class="text-primary fw-bolder mb-2">@f.Fecha</div>
-                                            <div class="small fw-bolder">@f.Nombre @f.Apellido</div>
-                                            <div class="small text-muted">@f.AtencionMedica</div>
-                                            <div class="small text-muted">@f.Edad años</div>
+                        <!-- Cita 1-->
+                        foreach (var f in Model)
+                        {
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">@f.Fecha</div>
+                                                <div class="small fw-bolder">@f.Nombre @f.Apellido</div>
+                                                <div class="small text-muted">@f.AtencionMedica</div>
+                                                <div class="small text-muted">@f.Edad años</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div>
-                                            ID CITA # @f.IdCita  - Gracias por agendar tu cita con nosotros esperamos verte pronto.
+                                        <div class="col-lg-8">
+                                            <div>
+                                                ID CITA # @f.IdCita  - Gracias por agendar tu cita con nosotros esperamos verte pronto.
+                                            </div>
+                                            <a href="@Url.Action("Editar", "Home", new { id = f.IdCita })" class="btn btn-primary">Editar</a>
+
+                                            <a href="@Url.Action("Eliminar", "Home", new { id = f.IdCita })" class="btn btn-outline-danger">Eliminar</a>
                                         </div>
-                                        <a href="@Url.Action("Editar", "Home", new { id = f.IdCita })" class="btn btn-primary">Editar</a>
-                                        
-                                        <a href="@Url.Action("Eliminar", "Home", new { id = f.IdCita })" class="btn btn-outline-danger">Eliminar</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-
+                    else
+                    {
+                <div class="text-center">
+                    <div class="alert alert-info"  style="background-color: #F1F8FF; color: #1E90FF;">
+                        No se encontraron citas programadas.
+                    </div>
+                </div>
+                    }
                 </section>
             </div>
         </div>

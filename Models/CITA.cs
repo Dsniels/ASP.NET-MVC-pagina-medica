@@ -19,11 +19,11 @@ namespace WEB.Models
 
         [StringLength(30)]
         public string AtencionMedica { get; set; }
-
+       
         public DateTime Fecha { get; set; }
 
         [StringLength(300)]
-        public string Descripcion { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
 
         public DateTime? FechaCreacion { get; set; }
 
@@ -138,23 +138,24 @@ namespace WEB.Models
             return registro;
         }
 
-        public bool Actualizar(int id, string atencionmed, string nombre, string apellido, int edad, DateTime fecha, string telefono, string descripcion)
+        public bool Actualizar(CITA datos, int id)
         {
             bool estado = false;
             string query = "UPDATE CITA SET AtencionMedica = @AtencionMedica, Nombre = @Nombre, Apellido = @Apellido, Edad = @Edad, Fecha = @Fecha, Telefono = @Telefono, Descripcion = @Descripcion WHERE IdCita ="+ id;
-
+            string Descripcion = datos.Descripcion == null ? string.Empty:datos.Descripcion;
             try
             {
                 using (var cnx = new Model1())
                 {
                     int CAMBIOS = cnx.Database.ExecuteSqlCommand(query,
-                        new SqlParameter("@AtencionMedica", atencionmed),
-                        new SqlParameter("@Nombre", nombre),
-                        new SqlParameter("@Apellido", apellido),
-                        new SqlParameter("@Edad", edad),
-                        new SqlParameter("@Fecha", fecha),
-                        new SqlParameter("@Telefono", telefono),
-                        new SqlParameter("@Descripcion", descripcion));
+                        new SqlParameter("@AtencionMedica", datos.AtencionMedica),
+                        new SqlParameter("@Nombre",         datos.Nombre),
+                        new SqlParameter("@Apellido",       datos.Apellido),
+                        new SqlParameter("@Edad",           datos.Edad),
+                        new SqlParameter("@Fecha",          datos.Fecha),
+                        new SqlParameter("@Telefono",       datos.Telefono),
+                        new SqlParameter("@Descripcion",    Descripcion));
+                    
 
                     if (CAMBIOS >= 1)
                     {
