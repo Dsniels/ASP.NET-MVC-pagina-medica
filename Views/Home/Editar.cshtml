@@ -2,8 +2,11 @@
 @{
     ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-}<section class="py-5">
+    var fecha = Model.Fecha;
+    var dt = new DateTime(fecha.Ticks, DateTimeKind.Unspecified);
+    var isoDateString = dt.ToString("O");
+   }
+<section class="py-5">
     <div class="container px-5 ">
         <div class="bg-light rounded-4 py-5 px-4 px-md-5">
             <div class="text-center mb-5">
@@ -13,7 +16,7 @@
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
                     <!-- Formulario-->
-                    <form action="~/Home/Editar" method="post">
+                    <form asp-controller="Home" asp-action="Editar" method="post">
                         <!-- Nombre-->
                         <div class="form-floating mb-3">
                             <input class="form-control" value="@Model.Nombre" id="nombre" name="nombre" type="text" />
@@ -37,10 +40,10 @@
                                 <label for="fecha">Servicio:</label>
                             </div>
                             <div class="col-12">
-                                <select class="form-select form-control" value="@Model.AtencionMedica" type="text" id="atencionmed" name="atencionmed">
-                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Atencion medica</option>
-                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Cardiologia</option>
-                                    <option type="text" id="atencionmed" value="@Model.AtencionMedica" name="atencionmed" >Radiologia</option>
+                                <select class="form-select form-control" value="@Model.AtencionMedica" type="text" id="AtencionMedica" name="AtencionMedica">
+                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Atencion medica</option>
+                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Cardiologia</option>
+                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Radiologia</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -52,7 +55,7 @@
 
                             </div>
                             <div class="form-floating col-12">
-                                <input type="datetime-local" value="@Model.Fecha" class="form-control" id="fecha" name="fecha">
+                                <input type="datetime-local" value="@isoDateString" class="form-control" id="fecha" name="fecha">
                                 <label for="fecha">Fecha</label>
 
                             </div>
@@ -61,7 +64,7 @@
                             <textarea class="form-control" value="@Model.Descripcion" id="descripcion" name="descripcion" type="text" style="height: 10rem"></textarea>
                             <label for="descripcion">Comentario</label>
                         </div>
-                        <input type="hidden" id="id" name="id" value="@Model.IdCita" />v>
+                        <input type="hidden" id="id" name="id" value="@Model.IdCita"
                         <div class="d-grid"><button class="btn btn-success btn-lg" id="btn1" type="submit" name="btn1">Actualizar</button></div>
                     </form>
                 </div>
@@ -69,3 +72,10 @@
         </div>
     </div>
 </section>
+<script>
+    var fecha = "@Html.Raw(isoDateString)";
+    var TagFecha = document.getElementById("fecha");
+    TagFecha.value = fecha.slice(0, 16);
+
+
+</script>
