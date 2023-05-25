@@ -44,11 +44,11 @@ namespace WEB.Models
 
         public virtual CLIENTE CLIENTE { get; set; }
 
-        public List<CITA> Listar()
+        public List<CITA> Listar(int IdCliente)
         {
             var citas = new List<CITA>();
-            string query = "SELECT * FROM CITA";
             string connectionString = "data source=Localhost;initial catalog=DATOS;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+            string query = "SELECT * FROM CITA WHERE IdCliente = @IdCliente;";
 
             try
             {
@@ -58,6 +58,8 @@ namespace WEB.Models
 
                     using (var command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.Add("@IdCliente", System.Data.SqlDbType.Int); // @Parámetro, Tipo
+                        command.Parameters["@IdCliente"].Value = IdCliente;
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -87,7 +89,7 @@ namespace WEB.Models
             return citas;
         }
 
-        public bool Insertar(string atencionmed, string nombre, string apellido, int edad, DateTime fecha, string telefono, string descripcion)
+        public bool Insertar(int IdCliente, string atencionmed, string nombre, string apellido, int edad, DateTime fecha, string telefono, string descripcion)
         {
             bool estado = false;
 
@@ -95,10 +97,11 @@ namespace WEB.Models
             {
                 using (var cnx = new Model1())
                 {
-                    string query = "INSERT INTO CITA (AtencionMedica, Nombre, Apellido, Edad, Fecha, Telefono, Descripcion) " +
-                                   "VALUES (@AtencionMedica, @Nombre, @Apellido, @Edad, @Fecha, @Telefono, @Descripcion)";
+                    string query = "INSERT INTO CITA (IdCliente, AtencionMedica, Nombre, Apellido, Edad, Fecha, Telefono, Descripcion) " +
+                                   "VALUES (@IdCliente, @AtencionMedica, @Nombre, @Apellido, @Edad, @Fecha, @Telefono, @Descripcion)";
 
                     int r = cnx.Database.ExecuteSqlCommand(query,
+                        new SqlParameter("@IdCliente", IdCliente),
                         new SqlParameter("@AtencionMedica", atencionmed),
                         new SqlParameter("@Nombre", nombre),
                         new SqlParameter("@Apellido", apellido),

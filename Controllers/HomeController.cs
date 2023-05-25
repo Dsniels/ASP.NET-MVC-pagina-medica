@@ -15,9 +15,14 @@ namespace WEB.Controllers
         private Models.CITA CITA = new Models.CITA();
         public ActionResult Index()
         {
+            ViewBag.NombreCliente = "";
+
             if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
             {
+                ViewBag.Cliente = Session["Cliente"];
                 ViewBag.IsLoggedIn = true;
+
+                return View();
             }
 
             return View();
@@ -27,12 +32,17 @@ namespace WEB.Controllers
         public ActionResult Cita()
         {
 
-            return View(CITA.Listar());
+            return View();
         }
 
         [HttpPost]
         public ActionResult Cita(string atencionmed, string nombre, string apellido, int? edad, String fecha, string telefono, string descripcion)
         {
+            if (!(Session["LoggedIn"] != null && (bool)Session["LoggedIn"]))
+            {
+                return View();
+            }
+
             DateTime fechaCita;
             if (!DateTime.TryParse(fecha, out fechaCita))
             {
@@ -51,7 +61,7 @@ namespace WEB.Controllers
                     else
                     {
 
-                        if (CITA.Insertar(atencionmed, nombre, apellido, edad ?? 0, Convert.ToDateTime(fecha), telefono, descripcion))
+                        if (CITA.Insertar(Int32.Parse(Session["IdCliente"] + ""), atencionmed, nombre, apellido, edad ?? 0, Convert.ToDateTime(fecha), telefono, descripcion))
                         {
                             ViewBag.alerta = "success";
                             ViewBag.res = "Cita registrada exitosamente.";
@@ -80,9 +90,13 @@ namespace WEB.Controllers
         [HttpGet]
         public ActionResult Mis_Citas()
         {
+            if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+            {
+                var IdCliente = Int32.Parse(Session["IdCliente"] + "");
+                return View(CITA.Listar(IdCliente));
+            }
 
-            return View(CITA.Listar());
-
+            return View();
         }
 
         public ActionResult Editar(int id)
@@ -164,6 +178,7 @@ namespace WEB.Controllers
             {
                 Session["LoggedIn"] = true;
                 Session["Cliente"] = Usuario;
+                Session["IdCliente"] = Usuario.IdCliente;
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -203,6 +218,7 @@ namespace WEB.Controllers
             {
                 Session["LoggedIn"] = true;
                 Session["Cliente"] = Usuario;
+                Session["IdCliente"] = Usuario.IdCliente;
                 return RedirectToAction("Index", "Home");
             }
             else
