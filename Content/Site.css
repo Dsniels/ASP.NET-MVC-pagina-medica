@@ -14,10 +14,6 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 
-html,
-body {
-    overflow: hidden;
-}
 
     body.my-login-page {
         background-color: #f7f9fb;

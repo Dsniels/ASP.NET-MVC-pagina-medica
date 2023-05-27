@@ -124,7 +124,7 @@ namespace WEB.Models
 
             return estado;
         }
-        public CITA Registrar(int id)
+        public CITA filtrar(int id)
         {
             var registro = new CITA();
             try

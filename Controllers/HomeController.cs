@@ -103,7 +103,7 @@ namespace WEB.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var cita = CITA.Registrar(id);
+            var cita = CITA.filtrar(id);
             return View(cita);
 
         }
@@ -136,7 +136,7 @@ namespace WEB.Controllers
             {
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :(";
-                return View(CITA.Registrar(id));
+                return View(CITA.filtrar(id));
             }
         }
 
