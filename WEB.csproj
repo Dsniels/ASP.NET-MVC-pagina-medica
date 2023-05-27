@@ -172,6 +172,7 @@
     <Content Include="img\healing-g4042efa69_640.jpg" />
     <Content Include="img\Logo salud medicina azul blanco %281%29.png" />
     <Content Include="img\Logo salud medicina azul blanco.png" />
+    <Content Include="img\Logotipo Medicina Simple Azul y Blanco %283%29.png" />
     <Content Include="img\Logotipo Medicina Simple Azul y Blanco.png" />
     <Content Include="img\mask-4934337.jpg" />
     <Content Include="img\mediterranean-cuisine-gd6d88217d_1280.jpg" />
@@ -229,8 +230,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Mis_Citas.cshtml" />
@@ -242,6 +241,7 @@
     <Content Include="Views\Home\Articulo_4.cshtml" />
     <Content Include="Views\Home\Editar.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

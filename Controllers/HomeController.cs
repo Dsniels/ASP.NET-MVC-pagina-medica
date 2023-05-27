@@ -241,5 +241,20 @@ namespace WEB.Controllers
 
         }
 
+        public ActionResult Articulo_1()
+        {
+            return View();
+        }
+
+        public ActionResult Articulo_2()
+        {
+            return View();
+        }
+
+        public ActionResult Articulo_3()
+        {
+            return View();
+        }
+
     }
 }

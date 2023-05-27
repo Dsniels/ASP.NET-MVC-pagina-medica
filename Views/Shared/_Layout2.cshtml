@@ -11,13 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="~/Content/Site.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -66,11 +59,40 @@
                 </ul>
             </div>
         </div>
-    </nav><br />
+    </nav>
     <br />
     <br />
     <br />
-    @RenderBody()
+    <br />
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <header class="mb-4">
+
+                        <h1 class="fw-bolder mb-1">@ViewData["Title"]</h1>
+                        <div class="text-muted fst-italic mb-2">@ViewData["Publicacion"]</div>
+
+                        @if (ViewData["Categorias"] is List<string> categorias)
+                        {
+                            foreach (string Categoria in categorias)
+                            {
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Categoria</a>
+                            }
+                        }
+
+                    </header>
+                    @RenderSection("Contenido", false)
+                </article>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    @RenderSection("sidewight", false)
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
