@@ -238,14 +238,11 @@
     <Content Include="Views\Home\Articulo_1.cshtml" />
     <Content Include="Views\Home\Articulo_2.cshtml" />
     <Content Include="Views\Home\Articulo_3.cshtml" />
-    <Content Include="Views\Home\Articulo_4.cshtml" />
     <Content Include="Views\Home\Editar.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
