@@ -170,8 +170,10 @@
     <Content Include="img\doctor-g2c9ad6c93_640.jpg" />
     <Content Include="img\doctor-gcd68fa2a6_1280.jpg" />
     <Content Include="img\healing-g4042efa69_640.jpg" />
+    <Content Include="img\ICONO.ico" />
     <Content Include="img\Logo salud medicina azul blanco %281%29.png" />
     <Content Include="img\Logo salud medicina azul blanco.png" />
+    <Content Include="img\Logo.png" />
     <Content Include="img\Logotipo Medicina Simple Azul y Blanco %283%29.png" />
     <Content Include="img\Logotipo Medicina Simple Azul y Blanco.png" />
     <Content Include="img\mask-4934337.jpg" />

@@ -103,6 +103,7 @@ namespace WEB.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
+
             var cita = CITA.filtrar(id);
             return View(cita);
 
@@ -115,13 +116,14 @@ namespace WEB.Controllers
             {
                 ViewBag.alerta = "success";
                 ViewBag.res = "Datos actualizados";
+                return RedirectToAction("Mis_citas", "Home");
             }
             else
             {
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :( ";
             }
-            return RedirectToAction("Mis_citas", "Home");
+           return View();
         }
 
         public ActionResult Eliminar(int id)
@@ -149,6 +151,14 @@ namespace WEB.Controllers
         [HttpPost]
         public ActionResult Signup_page(CLIENTE Usuario)
         {
+
+            if (string.IsNullOrEmpty(Usuario.Nombre) || string.IsNullOrEmpty(Usuario.Apellido) || string.IsNullOrEmpty(Usuario.Correo) || string.IsNullOrEmpty(Usuario.Contraseña))
+            {
+                ViewBag.alerta = "danger";
+                ViewBag.res = "Todos los campos son obligatorios.";
+                return View();
+            }
+
             bool Registrado;
             string Mensaje;
 
@@ -175,7 +185,7 @@ namespace WEB.Controllers
 
             }
             ViewBag.alerta = "danger";
-            ViewBag.res = "Datos de la cita no válidos.";
+            ViewBag.res = "Datos no válidos.";
             ViewData["Mensaje"] = Mensaje;
 
             if (Registrado)
@@ -204,6 +214,11 @@ namespace WEB.Controllers
         public ActionResult Login(CLIENTE Usuario)
         {
 
+            if (string.IsNullOrEmpty(Usuario.Correo) || string.IsNullOrEmpty(Usuario.Contraseña))
+            {
+                ViewData["Mensaje"] = "Por favor, ingrese un correo electrónico y contraseña.";
+                return View();
+            }
 
             using (SqlConnection cn = new SqlConnection(Conexion))
             {
