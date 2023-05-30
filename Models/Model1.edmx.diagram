@@ -4,6 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram DiagramId="1d7aeabb4261425c9c051c6ae8567316" Name="Diagram1">
+        <EntityTypeShape EntityType="DATOSModel.CITA" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DATOSModel.CLIENTE" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="DATOSModel.FK_Citas_Clientes" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

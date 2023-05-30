@@ -16,9 +16,14 @@ namespace WEB.Controllers
         private Models.CITA CITA = new Models.CITA();
         public ActionResult Index()
         {
+            ViewBag.NombreCliente = "";
+
             if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
             {
+                ViewBag.Cliente = Session["Cliente"];
                 ViewBag.IsLoggedIn = true;
+
+                return View();
             }
 
             return View();
@@ -28,12 +33,17 @@ namespace WEB.Controllers
         public ActionResult Cita()
         {
 
-            return View(CITA.Listar());
+            return View();
         }
 
         [HttpPost]
         public ActionResult Cita(string atencionmed, string nombre, string apellido, int? edad, String fecha, string telefono, string descripcion)
         {
+            if (!(Session["LoggedIn"] != null && (bool)Session["LoggedIn"]))
+            {
+                return View();
+            }
+
             DateTime fechaCita;
             if (!DateTime.TryParse(fecha, out fechaCita))
             {
@@ -52,7 +62,7 @@ namespace WEB.Controllers
                     else
                     {
 
-                        if (CITA.Insertar(atencionmed, nombre, apellido, edad ?? 0, Convert.ToDateTime(fecha), telefono, descripcion))
+                        if (CITA.Insertar(Int32.Parse(Session["IdCliente"] + ""), atencionmed, nombre, apellido, edad ?? 0, Convert.ToDateTime(fecha), telefono, descripcion))
                         {
                             ViewBag.alerta = "success";
                             ViewBag.res = "Cita registrada exitosamente.";
@@ -81,15 +91,20 @@ namespace WEB.Controllers
         [HttpGet]
         public ActionResult Mis_Citas()
         {
+            if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+            {
+                var IdCliente = Int32.Parse(Session["IdCliente"] + "");
+                return View(CITA.Listar(IdCliente));
+            }
 
-            return View(CITA.Listar());
-
+            return View();
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var cita = CITA.Registrar(id);
+
+            var cita = CITA.filtrar(id);
             return View(cita);
 
         }
@@ -101,13 +116,14 @@ namespace WEB.Controllers
             {
                 ViewBag.alerta = "success";
                 ViewBag.res = "Datos actualizados";
+                return RedirectToAction("Mis_citas", "Home");
             }
             else
             {
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :( ";
             }
-            return RedirectToAction("Mis_citas", "Home");
+           return View();
         }
 
         public ActionResult Eliminar(int id)
@@ -122,7 +138,7 @@ namespace WEB.Controllers
             {
                 ViewBag.alerta = "danger";
                 ViewBag.res = "Ocurrio un error :(";
-                return View(CITA.Registrar(id));
+                return View(CITA.filtrar(id));
             }
         }
 
@@ -135,6 +151,14 @@ namespace WEB.Controllers
         [HttpPost]
         public ActionResult Signup_page(CLIENTE Usuario)
         {
+
+            if (string.IsNullOrEmpty(Usuario.Nombre) || string.IsNullOrEmpty(Usuario.Apellido) || string.IsNullOrEmpty(Usuario.Correo) || string.IsNullOrEmpty(Usuario.Contraseña))
+            {
+                ViewBag.alerta = "danger";
+                ViewBag.res = "Todos los campos son obligatorios.";
+                return View();
+            }
+
             bool Registrado;
             string Mensaje;
 
@@ -161,13 +185,14 @@ namespace WEB.Controllers
 
             }
             ViewBag.alerta = "danger";
-            ViewBag.res = "Datos de la cita no válidos.";
+            ViewBag.res = "Datos no válidos.";
             ViewData["Mensaje"] = Mensaje;
 
             if (Registrado)
             {
                 Session["LoggedIn"] = true;
                 Session["Cliente"] = Usuario;
+                Session["IdCliente"] = Usuario.IdCliente;
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -189,6 +214,11 @@ namespace WEB.Controllers
         public ActionResult Login(CLIENTE Usuario)
         {
 
+            if (string.IsNullOrEmpty(Usuario.Correo) || string.IsNullOrEmpty(Usuario.Contraseña))
+            {
+                ViewData["Mensaje"] = "Por favor, ingrese un correo electrónico y contraseña.";
+                return View();
+            }
 
             using (SqlConnection cn = new SqlConnection(Conexion))
             {
@@ -207,6 +237,7 @@ namespace WEB.Controllers
             {
                 Session["LoggedIn"] = true;
                 Session["Cliente"] = Usuario;
+                Session["IdCliente"] = Usuario.IdCliente;
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -223,6 +254,21 @@ namespace WEB.Controllers
             Session["Cliente"] = null;
             return RedirectToAction("Index", "Home");
 
+        }
+
+        public ActionResult Articulo_1()
+        {
+            return View();
+        }
+
+        public ActionResult Articulo_2()
+        {
+            return View();
+        }
+
+        public ActionResult Articulo_3()
+        {
+            return View();
         }
 
     }

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] </title>
-    <link rel="icon" href="~/img/ICONO.ico" type="image/x-icon">
+    <link rel="icon" href="~/Logotipo-Medicina-Simple-Azul-y-Blanco.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
@@ -15,7 +15,6 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="margin: 0;">
-
     <nav class="navbar shadow navbar-expand-lg fixed-top bg-light navbar-light">
         <div class="container">
             <a class="navbar-brand" href="@Url.Action("Index", "Home", new {})">
@@ -54,15 +53,45 @@
                     <li class="nav-item ms-3">
                         @if (Session["Cliente"] == null)
                         {
-                            @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-dark rounded-pill", style="border-radius:", id = "login-btn" })
+                            @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-dark rounded-pill", style = "border-radius:", id = "login-btn" })
                         }
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    @RenderBody()
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <header class="mb-4">
 
+                        <h1 class="fw-bolder mb-1">@ViewData["Title"]</h1>
+                        <div class="text-muted fst-italic mb-2">@ViewData["Publicacion"]</div>
+
+                        @if (ViewData["Categorias"] is List<string> categorias)
+                        {
+                            foreach (string Categoria in categorias)
+                            {
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Categoria</a>
+                            }
+                        }
+
+                    </header>
+                    @RenderSection("Contenido", false)
+                </article>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    @RenderSection("sidewight", false)
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer py-4">
         <div class="container">
@@ -71,8 +100,8 @@
                 <div class="col-lg-4 my-3 my-lg-0">
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    Privacy Policy
-                   Terms of Use
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
                 </div>
             </div>
         </div>

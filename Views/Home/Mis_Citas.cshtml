@@ -4,10 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
+<br />
 <section class="py-5">
     <div class="container px-5 my-5">
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <h1 class="text-primary fw-bolder mb-0">Citas Programadas</h1>
+            <h1 class="text-primary fw-bolder mb-0">Mis Citas </h1>
         </div>
         <br />
         <br />
@@ -16,7 +18,7 @@
                 <section id="logged-in">
                     @if (Model.Count > 0)
                     {
-                        <!-- Cita 1-->
+                        <!--Cita-->
                         foreach (var f in Model)
                         {
                             <div class="card shadow border-0 rounded-4 mb-5">
@@ -32,10 +34,9 @@
                                         </div>
                                         <div class="col-lg-8">
                                             <div>
-                                                ID CITA # @f.IdCita  - Gracias por agendar tu cita con nosotros esperamos verte pronto.
+                                                ID CITA # @f.IdCita  - Gracias por agendar tu cita con nosotros te contactaremos pronto.
                                             </div>
                                             <a href="@Url.Action("Editar", "Home", new { id = f.IdCita })" class="btn btn-primary">Editar</a>
-
                                             <a href="@Url.Action("Eliminar", "Home", new { id = f.IdCita })" class="btn btn-outline-danger">Eliminar</a>
                                         </div>
                                     </div>
@@ -45,11 +46,11 @@
                     }
                     else
                     {
-                <div class="text-center">
-                    <div class="alert alert-info"  style="background-color: #F1F8FF; color: #1E90FF;">
-                        No se encontraron citas programadas.
-                    </div>
-                </div>
+                        <div class="text-center">
+                            <div class="alert alert-info" style="background-color: #F1F8FF; color: #1E90FF;">
+                                No se encontraron citas programadas.
+                            </div>
+                        </div>
                     }
                 </section>
             </div>

@@ -14,12 +14,14 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 
+html, body{
+    overflow:initial;
+}
 
-
-    body.my-login-page {
-        background-color: #f7f9fb;
-        font-size: 14px;
-    }
+body.my-login-page {
+    background-color: #f7f9fb;
+    font-size: 14px;
+}
 
 .my-login-page .brand {
     width: 90px;
@@ -86,4 +88,8 @@
         .my-login-page .card.fat .card-body {
             padding: 15px;
         }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
 }

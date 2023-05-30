@@ -4,10 +4,10 @@
 }
 
 
-<div style="margin: 0;" id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
-    <div class="carousel-inner">
+<div  style="height: auto; width:auto;  " id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
+    <div  class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/img/pexels-pixabay-263402.jpg" class="d-block w-100" alt="...">
+            <img style="height: 700px; width:auto;" src="~/img/pexels-pixabay-263402.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <div class="container px-4 px-lg-5 text-center">
                     <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="~/img/tablets-ge1dfc7859_1280.jpg" class="d-block w-100" alt="...">
+            <img style="height: 700px; width:auto;" src="~/img/doctor-650534.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <div class="container px-4 px-lg-5 text-center">
                     <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -31,30 +31,13 @@
                             <h2 class="text-white">Conoce informacion que te ayudara a vivir una vida mas saludable</h2>
                             <p class="lead mb-5">
                                 Constantemente agregamos articulos nuevos que ayudar y aconsejar a al gente para vivir una vida mas saludable y prevenir enfermedades
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                            </p><br><br>
-                            <a class="btn btn-info text-white" href="#Articulos">Conoce más!</a>
-                            <br><br><br><br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/img/doctor-650534.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="container px-4 px-lg-5 text-center">
-                    <div class="row gx-4 gx-lg-5 justify-content-center">
-                        <div class="col-lg-10">
-                            <h2 class="text-white">¡Conoce nuestras especialidades!</h2>
-                            <br><br>
-                            <a class="btn btn-info text-white" onclick="alert" alert="" href="#Especialistas">Especialistas</a>
-                            <br><br><br><br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -156,10 +139,64 @@
         </aside>
     </div>
 </section>
-<hr />
-<h1>Conoce nuestra ubicacion!</h1>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.363338653169!2d-100.31924732029438!3d25.72549545708329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629452432ae897%3A0xf2331cffc0fb0d60!2sEdificio%2007%20FIME!5e0!3m2!1ses!2smx!4v1683834986409!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-<hr />
+<section class="bg-light">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Conoce Nuestra Ubicacion</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Edificio 7, Niños Héroes, Ciudad Universitaria, 66455 San Nicolás de los Garza, N.L.</p>
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0 rounded-circle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.363338653169!2d-100.31924732029438!3d25.72549545708329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629452432ae897%3A0xf2331cffc0fb0d60!2sEdificio%2007%20FIME!5e0!3m2!1ses!2smx!4v1683834986409!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container px-5 my-5">
+    <div class="row gx-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="text-center">
+                <h2 class="fw-bolder">Articulos de tu interes</h2>
+                <p class="lead fw-normal text-muted mb-5">Informate </p>
+            </div>
+        </div>
+    </div>
+    <div class="row gx-5">
+        <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+                <img class="card-img-top" src="~/img/yoga-g96ebd2f0e_1280.jpg" alt="..." />
+                <div class="card-body p-4">
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Articulo</div>
+                    <a class="text-decoration-none link-dark stretched-link" href="@Url.Action("Articulo_1", "Home", new {})"><h5 class="card-title mb-3">Mindfulness</h5></a>
+                    <p class="card-text mb-0">Tan efectivo como los fármacos contra la ansiedad</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+                <img class="card-img-top" src="~/img/newborn-g8a97a25e6_1280.jpg" alt="..." />
+                <div class="card-body p-4">
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Articulo</div>
+                    <a class="text-decoration-none link-dark stretched-link" href="@Url.Action("Articulo_2", "Home", new {})"><h5 class="card-title mb-3">Pediatria</h5></a>
+                    <p class="card-text mb-0">6 consejos para elegir al pediatra de tus hijos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-5">
+            <div class="card h-100 shadow border-0">
+                <img class="card-img-top" src="~/img/analysis-ga15eee074_1280.jpg" alt="..." />
+                <div class="card-body p-4">
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Articulo</div>
+                    <a class="text-decoration-none link-dark stretched-link" href="@Url.Action("Articulo_3", "Home", new {})"> <h5 class="card-title mb-3">Descubre como cuidarte del covid</h5></a>
+                    <p class="card-text mb-0">¿Qué es el COVID-19 y cómo puedo protegerme?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

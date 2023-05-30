@@ -5,13 +5,18 @@
     var fecha = Model.Fecha;
     var dt = new DateTime(fecha.Ticks, DateTimeKind.Unspecified);
     var isoDateString = dt.ToString("O");
-   }
+}
+<br />
+<br />
+<br />
+<br />
 <section class="py-5">
     <div class="container px-5 ">
-        <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+        <div class="bg-white shadow rounded-4 py-5 px-4 px-md-5">
             <div class="text-center mb-5">
                 <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
                 <h1 class="fw-bolder">Actualiza tu Cita</h1>
+                <div class="alert alert-@ViewBag.alerta"><b>@ViewBag.res</b></div>
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
@@ -40,10 +45,10 @@
                                 <label for="fecha">Servicio:</label>
                             </div>
                             <div class="col-12">
-                                <select class="form-select form-control" value="@Model.AtencionMedica" type="text" id="AtencionMedica" name="AtencionMedica">
-                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Atencion medica</option>
-                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Cardiologia</option>
-                                    <option type="text" id="AtencionMedica" value="@Model.AtencionMedica" name="AtencionMedica">Radiologia</option>
+                                <select class="form-select form-control"  type="text" id="AtencionMedica" name="AtencionMedica">
+                                    <option type="text" id="AtencionMedica"  name="AtencionMedica">Atencion medica</option>
+                                    <option type="text" id="AtencionMedica" name="AtencionMedica">Cardiologia</option>
+                                    <option type="text" id="AtencionMedica" name="AtencionMedica">Radiologia</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -64,8 +69,12 @@
                             <textarea class="form-control" value="@Model.Descripcion" id="descripcion" name="descripcion" type="text" style="height: 10rem"></textarea>
                             <label for="descripcion">Comentario</label>
                         </div>
-                        <input type="hidden" id="id" name="id" value="@Model.IdCita"
-                        <div class="d-grid"><button class="btn btn-success btn-lg" id="btn1" type="submit" name="btn1">Actualizar</button></div>
+                        <input type="hidden" id="id" name="id" value="@Model.IdCita" />
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-outline-success btn-lg" id="btn1" type="submit" name="btn1">Actualizar</button>
+                            <a href="@Url.Action("Mis_Citas", "Home", new {})" class="btn btn-outline-danger btn-lg">Cancelar</a>
+                        </div>
+
                     </form>
                 </div>
             </div>

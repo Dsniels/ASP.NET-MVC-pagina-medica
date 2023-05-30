@@ -22,37 +22,54 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="margin: 0;">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; margin: 0;">
-        <div class="container px-4">
-            <a class="fw-bolder text-primary fs-2 navbar-brand" style="font-family: 'Modak', cursive;" href="#">
-                <img src="~/img/Logo salud medicina azul blanco (1).png" width="100" height="100" class="d-inline-block align-top " alt="">
+    <nav class="navbar shadow navbar-expand-lg fixed-top bg-light navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home", new {})">
+                <img id="logo"
+                     src="~/img/Logotipo Medicina Simple Azul y Blanco (3).png"
+                     draggable="false"
+                     height="80"
+                     width="90"/>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder gap-3">
-                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link " })</li>
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        @if (Session["Cliente"] == null)
-                        {
-                            @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })
-                        }
+                        @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link mx-2" })
                     </li>
                     @if (Session["Cliente"] != null)
                     {
                         <li class="nav-item">
-                            @Html.ActionLink("Cita", "Cita", "Home", null, new { @class = "nav-link " })
+                            @Html.ActionLink("Cita", "Cita", "Home", null, new { @class = "nav-link mx-2" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Mis Citas", "Mis_Citas", "Home", null, new { @class = "nav-link " })
+                            @Html.ActionLink("Mis Citas", "Mis_Citas", "Home", null, new { @class = "nav-link mx-2" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Cerrar Sesión", "Cerrar_sesion", "Home", null, new { @class = "btn btn-primary fs-6", style = "border-radius: 110px; color: white", id = "login-btn" })
+                            @Html.ActionLink("Cerrar Sesión", "Cerrar_sesion", "Home", null, new { @class = "btn btn-dark rounded-pill", id = "login-btn" })
                         </li>
                     }
+                    <li class="nav-item ms-3">
+                        @if (Session["Cliente"] == null)
+                        {
+                            @Html.ActionLink("Iniciar Sesión", "Login", "Home", null, new { @class = "btn btn-dark rounded-pill", style = "border-radius:", id = "login-btn" })
+                        }
+                    </li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav><br />
+    <br />
+    <br />
+    <br />
     @RenderBody()
     <footer class="footer py-4">
         <div class="container">
